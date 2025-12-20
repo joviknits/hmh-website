@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patterns – Hook Mountain Handmade</title>
     <link rel="stylesheet" href="../base.css">
-    <link rel="icon" href="../images/2022_03_d86e37ab-8b3b-2574-eb82-0f33ae1f23eb.png" type="image/png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images-optimized/logo/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images-optimized/logo/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images-optimized/logo/favicon-180.png">
 </head>
 <body>
     <header>
@@ -31,19 +33,52 @@
         <div class="category-grid">
             <div class="category-card">
                 <a href="sweater-pattern-main-page.html">
-                    <img src="../images/2024_05_upload_medium-1.jpeg" alt="Sweaters">
+                    <div class="image-container">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../images-optimized/categories/sweaters-alt-400w.webp 400w,
+                                            ../images-optimized/categories/sweaters-alt-800w.webp 800w"
+                                    sizes="(max-width: 768px) 100vw, 400px">
+                            <img src="../images-optimized/categories/sweaters-alt-400w.jpg"
+                                 alt="Sweaters"
+                                 loading="lazy"
+                                 width="400" height="533">
+                        </picture>
+                    </div>
                     <h3>Sweaters</h3>
                 </a>
             </div>
             <div class="category-card">
                 <a href="accessories.html">
-                    <img src="../images/2024_03_pxl_20231114_181413205-1.jpg" alt="Accessories">
+                    <div class="image-container">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../images-optimized/categories/accessories-alt-400w.webp 400w,
+                                            ../images-optimized/categories/accessories-alt-800w.webp 800w"
+                                    sizes="(max-width: 768px) 100vw, 400px">
+                            <img src="../images-optimized/categories/accessories-alt-400w.jpg"
+                                 alt="Accessories"
+                                 loading="lazy"
+                                 width="400" height="533">
+                        </picture>
+                    </div>
                     <h3>Accessories</h3>
                 </a>
             </div>
             <div class="category-card">
                 <a href="summer-styles.html">
-                    <img src="../images/2024_03_pxl_20230730_172040998_exported_1501_1690738882154.jpg" alt="Summer Styles">
+                    <div class="image-container">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../images-optimized/categories/summer-styles-alt-400w.webp 400w,
+                                            ../images-optimized/categories/summer-styles-alt-800w.webp 800w"
+                                    sizes="(max-width: 768px) 100vw, 400px">
+                            <img src="../images-optimized/categories/summer-styles-alt-400w.jpg"
+                                 alt="Summer Styles"
+                                 loading="lazy"
+                                 width="400" height="533">
+                        </picture>
+                    </div>
                     <h3>Summer Styles</h3>
                 </a>
             </div>
@@ -53,7 +88,18 @@
         <section>
             <h2>Current favorite pattern</h2>
             <div class="featured">
-                <img src="../images/2025_11_pxl_20250816_1857233132-1.jpg" alt="The Arachne Pullover">
+                <div class="image-container">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="../images-optimized/featured/arachne-featured-350w.webp 350w,
+                                        ../images-optimized/featured/arachne-featured-700w.webp 700w"
+                                sizes="250px">
+                        <img src="../images-optimized/featured/arachne-featured-350w.jpg"
+                             alt="The Arachne Pullover"
+                             loading="lazy"
+                             width="250" height="333">
+                    </picture>
+                </div>
                 <div class="featured-content">
                     <h3>The Arachne Pullover</h3>
                     <p>It's basically your Halloween knitting dream.</p>
@@ -66,7 +112,16 @@
             <h2>Join my Newsletter</h2>
             <a href="https://dashboard.mailerlite.com/forms/936047/120780277461025946/share" class="btn">Sign up for my newsletter</a>
             <div style="margin-top: 30px;">
-                <img src="../images/2025_11_jovi_logo-1.png" alt="Hook Mountain Handmade Logo" style="max-width: 300px;">
+                <picture>
+                    <source type="image/png"
+                            srcset="../images-optimized/logo/logo-240w.png 240w,
+                                    ../images-optimized/logo/logo-300w.png 300w"
+                            sizes="300px">
+                    <img src="../images-optimized/logo/logo-300w.png"
+                         alt="Hook Mountain Handmade Logo"
+                         style="max-width: 300px;"
+                         width="300" height="360">
+                </picture>
             </div>
         </section>
     </main>
