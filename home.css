@@ -1,0 +1,45 @@
+/* Home Page Specific Styles */
+
+/* ========================================
+   Hero Section
+   ======================================== */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 20px;
+    background: var(--color-bg);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.hero h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-text);
+    margin: 0;
+    flex: 1;
+    line-height: 1.2;
+}
+
+.hero-logo {
+    max-width: 120px;
+    width: 100%;
+    flex-shrink: 0;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-logo {
+        max-width: 100px;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+}
