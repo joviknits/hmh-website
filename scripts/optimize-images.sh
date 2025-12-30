@@ -26,16 +26,6 @@ clean_name() {
     echo "$filename" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/--*/-/g' | sed 's/^-//' | sed 's/-$//'
 }
 
-# Function to get average edge color (samples from edges of image)
-get_edge_color() {
-    local input="$1"
-    # Sample from top and bottom 20 pixels, get average color
-    magick "$input" \( +clone -gravity North -crop x20+0+0 +repage \) \
-                    \( +clone -gravity South -crop x20+0+0 +repage \) \
-                    -gravity Center -crop x20+0+0 +repage \
-                    -append -scale 1x1! -format '%[hex:p{0,0}]' info: 2>/dev/null || echo "FFFFFF"
-}
-
 # Function to process a single image
 process_image() {
     local input="$1"
@@ -63,32 +53,6 @@ process_image() {
         return
     fi
 
-    local current_ratio=$(echo "scale=3; $width / $height" | bc)
-
-    # Check if image is roughly square (ratio > 0.85)
-    local is_square=$(echo "$current_ratio > 0.85" | bc)
-
-    local temp_file=""
-    local source_file="$input"
-
-    if [ "$is_square" -eq 1 ]; then
-        echo "  [EXTEND] Square image detected ($width x $height, ratio=$current_ratio)"
-
-        # Get edge color for background
-        local edge_color=$(get_edge_color "$input")
-        echo "    Edge color: #$edge_color"
-
-        # Calculate new height for 3:4 ratio
-        local new_height=$(echo "scale=0; $width / $TARGET_RATIO" | bc)
-
-        # Create temp file with extended canvas
-        temp_file=$(mktemp /tmp/claude/img_XXXXXX.png)
-        magick "$input" -background "#$edge_color" -gravity center \
-               -extent "${width}x${new_height}" "$temp_file"
-        source_file="$temp_file"
-        echo "    Extended to: $width x $new_height"
-    fi
-
     # Process each size
     IFS=',' read -ra SIZE_ARRAY <<< "$sizes"
     for target_width in "${SIZE_ARRAY[@]}"; do
@@ -96,23 +60,18 @@ process_image() {
 
         # WebP output
         local webp_out="$output_dir/${name}-${target_width}w.webp"
-        magick "$source_file" -resize "${target_width}x${target_height}^" \
+        magick "$input" -resize "${target_width}x${target_height}^" \
                -gravity center -extent "${target_width}x${target_height}" \
                -quality $WEBP_QUALITY "$webp_out"
 
         # JPEG output
         local jpg_out="$output_dir/${name}-${target_width}w.jpg"
-        magick "$source_file" -resize "${target_width}x${target_height}^" \
+        magick "$input" -resize "${target_width}x${target_height}^" \
                -gravity center -extent "${target_width}x${target_height}" \
                -quality $JPEG_QUALITY "$jpg_out"
 
         echo "    Created: ${name}-${target_width}w.webp/.jpg"
     done
-
-    # Cleanup temp file
-    if [ -n "$temp_file" ] && [ -f "$temp_file" ]; then
-        rm "$temp_file"
-    fi
 }
 
 # Function to process logo (keep as PNG)
@@ -160,9 +119,6 @@ echo ""
 echo "Input:  $INPUT_DIR"
 echo "Output: $OUTPUT_DIR"
 echo ""
-
-# Ensure temp directory exists
-mkdir -p /tmp/claude
 
 # ========================================
 # PATTERN IMAGES (320w, 640w)
