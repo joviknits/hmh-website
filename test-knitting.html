@@ -34,10 +34,17 @@
         <section class="featured">
             <div class="image-container">
                 <picture>
-                    <img src="new images/Wild Garlic1.jpg"
+                    <source type="image/webp"
+                            srcset="images-optimized/featured/wild-garlic-350w.webp 350w,
+                                    images-optimized/featured/wild-garlic-700w.webp 700w"
+                            sizes="250px">
+                    <img src="images-optimized/featured/wild-garlic-350w.jpg"
+                         srcset="images-optimized/featured/wild-garlic-350w.jpg 350w,
+                                 images-optimized/featured/wild-garlic-700w.jpg 700w"
+                         sizes="250px"
                          alt="Wild Garlic Tee"
                          loading="lazy"
-                         width="250" height="333">
+                         width="250" height="250">
                 </picture>
             </div>
             <div class="featured-content">
