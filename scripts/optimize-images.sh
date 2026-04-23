@@ -198,6 +198,7 @@ GLOVE_PATTERNS=(
 
 # Accessory patterns - Scarves
 SCARF_PATTERNS=(
+    "bubble-wrap-shawl.jpg:bubble-wrap-shawl"
     "2024_05_upload_medium-19-edited.jpeg:sea-glass-shawl"
     "2024_05_upload_medium2-1-1.jpeg:orchard-vine"
     "2024_05_upload_medium-15-1.jpeg:way-to-my-heart-cowl"
