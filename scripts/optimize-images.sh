@@ -242,6 +242,7 @@ echo ""
 echo "Processing FEATURED images..."
 
 FEATURED_IMAGES=(
+    "bubble-wrap-shawl.jpg:bubble-wrap-shawl-featured"
     "2025_11_pxl_20251111_1707159522.jpg:innkeeper-sweater"
     "2025_11_pxl_20250816_1857233132-1.jpg:arachne-featured"
     "2024_04_pxl_20240813_1533319452-1.jpg:test-knit-callout"
