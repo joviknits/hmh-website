@@ -198,6 +198,7 @@ GLOVE_PATTERNS=(
 
 # Accessory patterns - Scarves
 SCARF_PATTERNS=(
+    "shes-crafty.jpg:shes-crafty"
     "bubble-wrap-shawl.jpg:bubble-wrap-shawl"
     "2024_05_upload_medium-19-edited.jpeg:sea-glass-shawl"
     "2024_05_upload_medium2-1-1.jpeg:orchard-vine"
@@ -242,6 +243,7 @@ echo ""
 echo "Processing FEATURED images..."
 
 FEATURED_IMAGES=(
+    "shes-crafty.jpg:shes-crafty-featured"
     "bubble-wrap-shawl.jpg:bubble-wrap-shawl-featured"
     "2025_11_pxl_20251111_1707159522.jpg:innkeeper-sweater"
     "2025_11_pxl_20250816_1857233132-1.jpg:arachne-featured"
